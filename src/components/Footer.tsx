@@ -1,0 +1,131 @@
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+  ];
+
+  const footerLinks = [
+    { href: '#services', label: 'Services' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#process', label: 'Process' },
+    { href: '#testimonials', label: 'Testimonials' },
+  ];
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <footer className="relative bg-background border-t border-foreground/10">
+      <div className="max-w-[120rem] mx-auto px-6 lg:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
+          <div className="space-y-4">
+            <motion.div
+              className="font-heading text-2xl font-bold text-primary"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="text-electric-blue">&lt;</span>
+              Dev
+              <span className="text-electric-blue">/&gt;</span>
+            </motion.div>
+            <p className="font-paragraph text-sm text-foreground/70 leading-relaxed">
+              Building high-converting Shopify stores and smart digital systems. Strategic software engineering for modern ecommerce.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-heading text-lg font-bold text-foreground mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              {footerLinks.map((link) => (
+                <li key={link.href}>
+                  <motion.a
+                    href={link.href}
+                    onClick={(e) => scrollToSection(e, link.href)}
+                    className="font-paragraph text-sm text-foreground/70 hover:text-electric-blue transition-colors cursor-pointer inline-block"
+                    whileHover={{ x: 4 }}
+                  >
+                    {link.label}
+                  </motion.a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="font-heading text-lg font-bold text-foreground mb-4">Services</h3>
+            <ul className="space-y-3">
+              <li className="font-paragraph text-sm text-foreground/70">Shopify Development</li>
+              <li className="font-paragraph text-sm text-foreground/70">CRO Optimization</li>
+              <li className="font-paragraph text-sm text-foreground/70">AI Automation</li>
+              <li className="font-paragraph text-sm text-foreground/70">Custom Themes</li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-heading text-lg font-bold text-foreground mb-4">Connect</h3>
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-foreground/5 hover:bg-electric-blue/10 border border-foreground/10 hover:border-electric-blue/30 flex items-center justify-center text-foreground/70 hover:text-electric-blue transition-all duration-300"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label={social.label}
+                >
+                  <social.icon size={18} />
+                </motion.a>
+              ))}
+            </div>
+            <p className="font-paragraph text-sm text-foreground/70 mt-6">
+              hello@example.com
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-foreground/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="font-paragraph text-sm text-foreground/50">
+              © {currentYear} All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <a
+                href="#privacy"
+                className="font-paragraph text-sm text-foreground/50 hover:text-electric-blue transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="#terms"
+                className="font-paragraph text-sm text-foreground/50 hover:text-electric-blue transition-colors"
+              >
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Decorative gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric-blue/30 to-transparent" />
+    </footer>
+  );
+}
