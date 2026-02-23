@@ -53,7 +53,7 @@ export default function ProcessSection() {
           {isLoading ? null : (
             <div className="relative">
               {/* Connection line */}
-              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-electric-blue/20 via-soft-purple/20 to-primary/20 transform -translate-x-1/2" />
+              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-shopify-green/40 via-shopify-green/20 to-shopify-green/10 transform -translate-x-1/2" />
 
               <div className="space-y-24">
                 {steps.map((step, index) => (
@@ -95,11 +95,11 @@ function ProcessStep({ step, index, isEven }: ProcessStepProps) {
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : {}}
           transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-electric-blue/20 to-soft-purple/20 border border-electric-blue/30 mb-6 ${
+          className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-shopify-green/20 border-2 border-shopify-green/50 mb-6 ${
             isEven ? 'lg:ml-auto' : ''
           }`}
         >
-          <span className="font-heading text-2xl font-black text-electric-blue">
+          <span className="font-heading text-2xl font-black text-shopify-green">
             {String(index + 1).padStart(2, '0')}
           </span>
         </motion.div>
@@ -109,7 +109,7 @@ function ProcessStep({ step, index, isEven }: ProcessStepProps) {
         </h3>
 
         {step.shortSummary && (
-          <p className="font-paragraph text-lg text-primary font-semibold mb-4">
+          <p className="font-paragraph text-lg text-shopify-green font-semibold mb-4">
             {step.shortSummary}
           </p>
         )}
@@ -128,7 +128,7 @@ function ProcessStep({ step, index, isEven }: ProcessStepProps) {
           whileHover={{ scale: 1.05, rotate: 2 }}
           className="relative group"
         >
-          <div className="relative rounded-2xl overflow-hidden bg-foreground/5 border border-foreground/10 group-hover:border-electric-blue/30 transition-all duration-500">
+          <div className="relative rounded-2xl overflow-hidden bg-foreground/5 border-2 border-shopify-green/30 group-hover:border-shopify-green/60 transition-all duration-500">
             {step.visualRepresentation ? (
               <div className="aspect-[4/3] relative">
                 <Image
@@ -138,12 +138,12 @@ function ProcessStep({ step, index, isEven }: ProcessStepProps) {
                   className="w-full h-full object-cover"
                 />
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 to-soft-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-shopify-green/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             ) : (
               <div className="aspect-[4/3] flex items-center justify-center">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-electric-blue/20 to-soft-purple/20 border-4 border-electric-blue/30 flex items-center justify-center">
-                  <span className="font-heading text-5xl font-black text-electric-blue">
+                <div className="w-32 h-32 rounded-full bg-shopify-green/15 border-4 border-shopify-green/40 flex items-center justify-center">
+                  <span className="font-heading text-5xl font-black text-shopify-green">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
@@ -151,8 +151,8 @@ function ProcessStep({ step, index, isEven }: ProcessStepProps) {
             )}
           </div>
 
-          {/* Decorative glow */}
-          <div className="absolute -inset-4 bg-gradient-to-br from-electric-blue/20 to-soft-purple/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10" />
+          {/* Subtle accent line */}
+          <div className="absolute -inset-1 border border-shopify-green/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
         </motion.div>
       </div>
 
@@ -161,7 +161,7 @@ function ProcessStep({ step, index, isEven }: ProcessStepProps) {
         initial={{ scale: 0 }}
         animate={isInView ? { scale: 1 } : {}}
         transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
-        className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-electric-blue border-4 border-background shadow-[0_0_20px_rgba(0,255,255,0.5)]"
+        className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-shopify-green border-4 border-background"
       />
     </motion.div>
   );

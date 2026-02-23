@@ -257,17 +257,16 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 bg-background">
-      {/* Dynamic Background Mesh */}
+      {/* Subtle Background Accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
           style={{ y: y1, x: -100 }}
-          className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-electric-blue/15 rounded-full blur-[120px] mix-blend-screen animate-pulse"
+          className="absolute top-[-30%] left-[-15%] w-[600px] h-[600px] bg-shopify-green/8 rounded-full blur-[150px]"
         />
         <motion.div 
           style={{ y: y2, x: 100 }}
-          className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-soft-purple/15 rounded-full blur-[100px] mix-blend-screen"
+          className="absolute bottom-[-30%] right-[-15%] w-[500px] h-[500px] bg-electric-blue/8 rounded-full blur-[150px]"
         />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 brightness-100 contrast-150 mix-blend-overlay"></div>
       </div>
 
       <div className="container relative z-10 px-4 md:px-6 max-w-[100rem] mx-auto">
@@ -291,7 +290,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
           >
-            Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-soft-purple">High-Converting</span> Shopify Stores & Smart Systems
+            Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">High-Converting</span> Shopify Stores & Smart Systems
           </motion.h1>
 
           <motion.p 
@@ -423,7 +422,7 @@ const ProjectsSection = () => {
     <section ref={targetRef} className="relative h-[300vh] bg-background" id="work">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <div className="absolute top-12 left-4 md:left-12 z-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground font-heading mb-2">Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-soft-purple">Works</span></h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground font-heading mb-2">Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">Works</span></h2>
           <p className="text-secondary-foreground max-w-md">A curated selection of high-impact digital products.</p>
         </div>
 
@@ -577,7 +576,7 @@ const WhyWorkSection = () => {
               viewport={{ once: true }}
             >
               Not just a developer. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-soft-purple">A Strategic Partner.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">A Strategic Partner.</span>
             </motion.h2>
             
             <div className="space-y-8">
