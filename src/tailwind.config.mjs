@@ -19,23 +19,23 @@ export default {
                 '9xl': ['8rem', { lineHeight: '1', letterSpacing: '-0.07em', fontWeight: '900' }],
             },
             fontFamily: {
-                heading: "syne",
-                paragraph: "nunito sans"
+                heading: "Inter",
+                paragraph: "Inter"
             },
             colors: {
                 destructive: '#FF0000',
                 'destructive-foreground': '#FFFFFF',
-                'electric-blue': '#00FFFF',
-                'soft-purple': '#9370DB',
-                'glowing-gradient-base1': '#00FFFF',
-                'glowing-gradient-base2': '#8A2BE2',
-                'glowing-gradient-base3': '#39FF14',
-                background: '#0A0A1A',
-                secondary: '#8A2BE2',
-                foreground: '#E0E0E0',
-                'secondary-foreground': '#FFFFFF',
-                'primary-foreground': '#000000',
-                primary: '#39FF14'
+                'electric-blue': '#3B82F6',
+                'soft-purple': '#8B5CF6',
+                'glowing-gradient-base1': '#3B82F6',
+                'glowing-gradient-base2': '#8B5CF6',
+                'glowing-gradient-base3': '#3B82F6',
+                background: '#0B0F19',
+                secondary: '#8B5CF6',
+                foreground: '#FFFFFF',
+                'secondary-foreground': '#A0AEC0',
+                'primary-foreground': '#0B0F19',
+                primary: '#3B82F6'
             },
         },
     },

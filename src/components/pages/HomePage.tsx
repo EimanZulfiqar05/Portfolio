@@ -231,8 +231,8 @@ const MagneticButton = ({ children, className, variant = "primary" }: { children
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={`relative overflow-hidden group rounded-full px-8 py-4 font-medium text-lg transition-all duration-300 ${
         variant === "primary" 
-          ? "bg-electric-blue text-background hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]" 
-          : "bg-transparent border border-white/20 text-white hover:bg-white/5 hover:border-electric-blue/50"
+          ? "bg-electric-blue text-primary-foreground hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]" 
+          : "bg-transparent border border-foreground/20 text-foreground hover:bg-foreground/5 hover:border-electric-blue/50"
       } ${className}`}
     >
       <span className="relative z-10 flex items-center gap-2">{children}</span>
@@ -256,18 +256,18 @@ const HeroSection = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 bg-background">
       {/* Dynamic Background Mesh */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div 
           style={{ y: y1, x: -100 }}
-          className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-electric-blue/10 rounded-full blur-[120px] mix-blend-screen animate-pulse"
+          className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-electric-blue/15 rounded-full blur-[120px] mix-blend-screen animate-pulse"
         />
         <motion.div 
           style={{ y: y2, x: 100 }}
-          className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-soft-purple/10 rounded-full blur-[100px] mix-blend-screen"
+          className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-soft-purple/15 rounded-full blur-[100px] mix-blend-screen"
         />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 brightness-100 contrast-150 mix-blend-overlay"></div>
       </div>
 
       <div className="container relative z-10 px-4 md:px-6 max-w-[100rem] mx-auto">
@@ -276,7 +276,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-electric-blue backdrop-blur-md"
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-electric-blue/30 bg-electric-blue/5 px-4 py-2 text-sm text-electric-blue backdrop-blur-md"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric-blue opacity-75"></span>
@@ -286,7 +286,7 @@ const HeroSection = () => {
           </motion.div>
 
           <motion.h1 
-            className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-8 leading-[1.1]"
+            className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-8 leading-[1.1]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
@@ -295,7 +295,7 @@ const HeroSection = () => {
           </motion.h1>
 
           <motion.p 
-            className="font-paragraph text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed"
+            className="font-paragraph text-lg md:text-xl text-secondary-foreground max-w-2xl mb-12 leading-relaxed font-light"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -321,7 +321,7 @@ const HeroSection = () => {
       
       {/* Scroll Indicator */}
       <motion.div 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-secondary-foreground flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
@@ -335,13 +335,13 @@ const HeroSection = () => {
 
 const TrustSection = () => {
   return (
-    <section className="py-20 border-y border-white/5 bg-black/20 backdrop-blur-sm relative z-20">
+    <section className="py-20 border-y border-foreground/10 bg-black/20 backdrop-blur-sm relative z-20">
       <div className="container max-w-[100rem] mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {TRUST_STATS.map((stat, index) => (
             <div key={index} className="flex flex-col items-center justify-center text-center">
               <motion.div 
-                className="text-4xl md:text-5xl font-bold text-white mb-2 font-heading"
+                className="text-4xl md:text-5xl font-bold text-foreground mb-2 font-heading"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -349,7 +349,7 @@ const TrustSection = () => {
               >
                 <AnimatedCounter value={stat.value} prefix={stat.prefix} />
               </motion.div>
-              <span className="text-sm md:text-base text-gray-400 uppercase tracking-wider font-medium">{stat.label}</span>
+              <span className="text-sm md:text-base text-secondary-foreground uppercase tracking-wider font-medium">{stat.label}</span>
             </div>
           ))}
         </div>
@@ -364,7 +364,7 @@ const ServicesSection = () => {
       <div className="container max-w-[100rem] mx-auto px-4 md:px-6">
         <div className="mb-20">
           <motion.h2 
-            className="text-3xl md:text-5xl font-bold text-white mb-6 font-heading"
+            className="text-3xl md:text-5xl font-bold text-foreground mb-6 font-heading"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -386,16 +386,16 @@ const ServicesSection = () => {
               className="group relative h-full"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/20 to-soft-purple/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Card className="relative h-full bg-[#0F0F22] border-white/5 overflow-hidden hover:border-electric-blue/30 transition-colors duration-300">
+              <Card className="relative h-full bg-[#0F0F22] border-foreground/10 overflow-hidden hover:border-electric-blue/30 transition-colors duration-300">
                 <CardContent className="p-8 flex flex-col h-full">
-                  <div className="mb-6 p-3 bg-white/5 w-fit rounded-xl text-electric-blue group-hover:scale-110 group-hover:bg-electric-blue group-hover:text-black transition-all duration-300">
+                  <div className="mb-6 p-3 bg-foreground/5 w-fit rounded-xl text-electric-blue group-hover:scale-110 group-hover:bg-electric-blue group-hover:text-primary-foreground transition-all duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3 font-heading group-hover:text-electric-blue transition-colors">{service.title}</h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed flex-grow">{service.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-3 font-heading group-hover:text-electric-blue transition-colors">{service.title}</h3>
+                  <p className="text-secondary-foreground mb-6 leading-relaxed flex-grow">{service.description}</p>
                   <ul className="space-y-2 mt-auto">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-gray-500 group-hover:text-gray-300 transition-colors">
+                      <li key={i} className="flex items-center gap-2 text-sm text-secondary-foreground/70 group-hover:text-secondary-foreground transition-colors">
                         <div className="w-1.5 h-1.5 rounded-full bg-electric-blue/50" />
                         {feature}
                       </li>
@@ -423,14 +423,14 @@ const ProjectsSection = () => {
     <section ref={targetRef} className="relative h-[300vh] bg-background" id="work">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <div className="absolute top-12 left-4 md:left-12 z-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-white font-heading mb-2">Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-soft-purple">Works</span></h2>
-          <p className="text-gray-400 max-w-md">A curated selection of high-impact digital products.</p>
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground font-heading mb-2">Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-soft-purple">Works</span></h2>
+          <p className="text-secondary-foreground max-w-md">A curated selection of high-impact digital products.</p>
         </div>
 
         <motion.div style={{ x }} className="flex gap-8 md:gap-16 px-4 md:px-12 pt-24">
           {PROJECTS_DATA.map((project) => (
             <div key={project.id} className="relative w-[85vw] md:w-[60vw] lg:w-[45vw] flex-shrink-0 group">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/10 bg-white/5 mb-6">
+              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/5 mb-6">
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 <Image 
                   src={project.image} 
@@ -445,8 +445,8 @@ const ProjectsSection = () => {
                       {project.category}
                     </span>
                     <div className="text-right">
-                      <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Impact</p>
-                      <p className="text-xl font-bold text-white">{project.metric}</p>
+                      <p className="text-xs text-secondary-foreground uppercase tracking-wider mb-1">Impact</p>
+                      <p className="text-xl font-bold text-foreground">{project.metric}</p>
                     </div>
                   </div>
                 </div>
@@ -454,10 +454,10 @@ const ProjectsSection = () => {
               
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-3xl font-bold text-white mb-2 font-heading">{project.title}</h3>
-                  <p className="text-gray-400 max-w-md">{project.description}</p>
+                  <h3 className="text-3xl font-bold text-foreground mb-2 font-heading">{project.title}</h3>
+                  <p className="text-secondary-foreground max-w-md">{project.description}</p>
                 </div>
-                <Button variant="outline" className="rounded-full border-white/20 hover:bg-white hover:text-black transition-colors group-hover:border-electric-blue group-hover:text-electric-blue group-hover:bg-transparent">
+                <Button variant="outline" className="rounded-full border-foreground/20 hover:bg-foreground hover:text-primary-foreground transition-colors group-hover:border-electric-blue group-hover:text-electric-blue group-hover:bg-transparent">
                   View Case Study <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
@@ -498,14 +498,14 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-heading">
+              <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 font-heading">
                 The <span className="text-soft-purple">Process</span>
               </h2>
-              <p className="text-xl text-gray-400 mb-12 max-w-lg">
+              <p className="text-xl text-secondary-foreground mb-12 max-w-lg">
                 A systematic approach to building digital excellence. From chaos to clarity, I guide your project through five distinct phases.
               </p>
               
-              <div className="relative h-[400px] w-full hidden lg:block bg-white/5 rounded-2xl overflow-hidden border border-white/10">
+              <div className="relative h-[400px] w-full hidden lg:block bg-foreground/5 rounded-2xl overflow-hidden border border-foreground/10">
                 {PROCESS_STEPS.map((step, index) => (
                   <motion.div
                     key={index}
@@ -519,10 +519,10 @@ const ProcessSection = () => {
                   >
                     <div className="text-center">
                       <div className="w-20 h-20 mx-auto bg-gradient-to-br from-electric-blue to-soft-purple rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(138,43,226,0.3)]">
-                        <div className="text-white scale-150">{step.icon}</div>
+                        <div className="text-foreground scale-150">{step.icon}</div>
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-4">{step.title}</h3>
-                      <p className="text-gray-300 leading-relaxed">{step.description}</p>
+                      <h3 className="text-3xl font-bold text-foreground mb-4">{step.title}</h3>
+                      <p className="text-secondary-foreground leading-relaxed">{step.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -537,20 +537,20 @@ const ProcessSection = () => {
                 key={index}
                 className={`flex gap-6 p-8 rounded-2xl border transition-all duration-500 ${
                   activeStep === index 
-                    ? "bg-white/5 border-electric-blue/30 shadow-[0_0_30px_rgba(0,0,0,0.3)]" 
+                    ? "bg-foreground/5 border-electric-blue/30 shadow-[0_0_30px_rgba(0,0,0,0.3)]" 
                     : "bg-transparent border-transparent opacity-30"
                 }`}
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: activeStep === index ? 1 : 0.3, x: 0 }}
                 viewport={{ margin: "-20% 0px -20% 0px" }}
               >
-                <span className="text-6xl font-bold text-white/10 font-heading">{step.step}</span>
+                <span className="text-6xl font-bold text-foreground/10 font-heading">{step.step}</span>
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-3 lg:hidden">{step.title}</h3>
-                  <p className="text-gray-400 leading-relaxed lg:hidden">{step.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-3 lg:hidden">{step.title}</h3>
+                  <p className="text-secondary-foreground leading-relaxed lg:hidden">{step.description}</p>
                   <div className="hidden lg:block">
-                    <h3 className="text-2xl font-bold text-white mb-2">{step.title} Phase</h3>
-                    <p className="text-gray-500">Scroll to activate details...</p>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">{step.title} Phase</h3>
+                    <p className="text-secondary-foreground/70">Scroll to activate details...</p>
                   </div>
                 </div>
               </motion.div>
@@ -571,7 +571,7 @@ const WhyWorkSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <motion.h2 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-heading leading-tight mb-12"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground font-heading leading-tight mb-12"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -590,17 +590,17 @@ const WhyWorkSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-electric-blue shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-foreground/5 flex items-center justify-center border border-foreground/10 text-electric-blue shrink-0">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <p className="text-xl md:text-2xl text-gray-300 font-light">{point}</p>
+                  <p className="text-xl md:text-2xl text-secondary-foreground font-light">{point}</p>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          <div className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-white/10 bg-white/5">
-             {/* Abstract Code/Visual Representation */}
+          <div className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
+             {/* ... keep existing code (Abstract Code/Visual Representation) ... */}
              <div className="absolute inset-0 p-8 font-mono text-sm text-electric-blue/40 overflow-hidden opacity-50">
                 {Array.from({ length: 20 }).map((_, i) => (
                   <div key={i} className="whitespace-nowrap mb-2">
@@ -611,12 +611,12 @@ const WhyWorkSection = () => {
              <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-transparent to-transparent" />
              
              <div className="absolute bottom-0 left-0 right-0 p-12">
-                <div className="bg-black/50 backdrop-blur-xl border border-white/10 p-8 rounded-2xl">
+                <div className="bg-black/50 backdrop-blur-xl border border-foreground/10 p-8 rounded-2xl">
                   <div className="flex items-center gap-4 mb-4">
                     <Shield className="w-8 h-8 text-soft-purple" />
-                    <h3 className="text-xl font-bold text-white">Enterprise Grade Quality</h3>
+                    <h3 className="text-xl font-bold text-foreground">Enterprise Grade Quality</h3>
                   </div>
-                  <p className="text-gray-400">
+                  <p className="text-secondary-foreground">
                     Every line of code is written with scalability, security, and performance in mind. No shortcuts, just robust engineering.
                   </p>
                 </div>
@@ -704,7 +704,7 @@ const CTASection = () => {
           background: useMotionTemplate`
             radial-gradient(
               650px circle at ${mouseX}px ${mouseY}px,
-              rgba(138, 43, 226, 0.15),
+              rgba(139, 92, 246, 0.15),
               transparent 80%
             )
           `,
@@ -716,15 +716,15 @@ const CTASection = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-3xl p-12 md:p-24 backdrop-blur-sm relative overflow-hidden"
+          className="bg-gradient-to-b from-foreground/10 to-foreground/5 border border-foreground/10 rounded-3xl p-12 md:p-24 backdrop-blur-sm relative overflow-hidden"
         >
           {/* Glow Effect */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-electric-blue/20 blur-[100px] rounded-full pointer-events-none" />
           
-          <h2 className="text-4xl md:text-6xl md:leading-tight font-bold text-white font-heading mb-8 relative z-10">
+          <h2 className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground font-heading mb-8 relative z-10">
             Ready to <span className="text-electric-blue">Scale</span> Your Store?
           </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto relative z-10">
+          <p className="text-xl text-secondary-foreground mb-10 max-w-2xl mx-auto relative z-10">
             Let's build a system that works as hard as you do. Book a discovery call and let's discuss your growth strategy.
           </p>
           
@@ -732,7 +732,7 @@ const CTASection = () => {
             <MagneticButton className="w-full sm:w-auto">
               Start Your Project <ArrowRight className="w-4 h-4" />
             </MagneticButton>
-            <Button variant="outline" className="h-auto py-4 px-8 rounded-full text-lg border-white/20 text-white hover:bg-white hover:text-black transition-colors">
+            <Button variant="outline" className="h-auto py-4 px-8 rounded-full text-lg border-foreground/20 text-foreground hover:bg-foreground hover:text-primary-foreground transition-colors">
               View Pricing
             </Button>
           </div>
