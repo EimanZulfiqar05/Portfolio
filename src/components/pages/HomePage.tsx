@@ -21,6 +21,10 @@ import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import ServicesSection from '@/components/sections/ServicesSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import ProcessSection from '@/components/sections/ProcessSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
 
 // --- CANONICAL DATA SOURCES ---
 // Sourced from User Request & Entities Definitions
@@ -357,210 +361,6 @@ const TrustSection = () => {
   );
 };
 
-const ServicesSection = () => {
-  return (
-    <section className="py-32 relative overflow-hidden" id="services">
-      <div className="container max-w-[100rem] mx-auto px-4 md:px-6">
-        <div className="mb-20">
-          <motion.h2 
-            className="text-3xl md:text-5xl font-bold text-foreground mb-6 font-heading"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Technical <span className="text-electric-blue">Expertise</span>
-          </motion.h2>
-          <div className="h-1 w-20 bg-electric-blue rounded-full"></div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES_DATA.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative h-full"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/20 to-soft-purple/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Card className="relative h-full bg-[#0F0F22] border-foreground/10 overflow-hidden hover:border-electric-blue/30 transition-colors duration-300">
-                <CardContent className="p-8 flex flex-col h-full">
-                  <div className="mb-6 p-3 bg-foreground/5 w-fit rounded-xl text-electric-blue group-hover:scale-110 group-hover:bg-electric-blue group-hover:text-primary-foreground transition-all duration-300">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3 font-heading group-hover:text-electric-blue transition-colors">{service.title}</h3>
-                  <p className="text-secondary-foreground mb-6 leading-relaxed flex-grow">{service.description}</p>
-                  <ul className="space-y-2 mt-auto">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-secondary-foreground/70 group-hover:text-secondary-foreground transition-colors">
-                        <div className="w-1.5 h-1.5 rounded-full bg-electric-blue/50" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ProjectsSection = () => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
-
-  return (
-    <section ref={targetRef} className="relative h-[300vh] bg-background" id="work">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <div className="absolute top-12 left-4 md:left-12 z-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground font-heading mb-2">Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">Works</span></h2>
-          <p className="text-secondary-foreground max-w-md">A curated selection of high-impact digital products.</p>
-        </div>
-
-        <motion.div style={{ x }} className="flex gap-8 md:gap-16 px-4 md:px-12 pt-24">
-          {PROJECTS_DATA.map((project) => (
-            <div key={project.id} className="relative w-[85vw] md:w-[60vw] lg:w-[45vw] flex-shrink-0 group">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/5 mb-6">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  width={1200} 
-                  height={800} 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="flex justify-between items-end">
-                    <span className="text-electric-blue font-mono text-sm bg-electric-blue/10 px-3 py-1 rounded-full backdrop-blur-md border border-electric-blue/20">
-                      {project.category}
-                    </span>
-                    <div className="text-right">
-                      <p className="text-xs text-secondary-foreground uppercase tracking-wider mb-1">Impact</p>
-                      <p className="text-xl font-bold text-foreground">{project.metric}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-3xl font-bold text-foreground mb-2 font-heading">{project.title}</h3>
-                  <p className="text-secondary-foreground max-w-md">{project.description}</p>
-                </div>
-                <Button variant="outline" className="rounded-full border-foreground/20 hover:bg-foreground hover:text-primary-foreground transition-colors group-hover:border-electric-blue group-hover:text-electric-blue group-hover:bg-transparent">
-                  View Case Study <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </div>
-            </div>
-          ))}
-          {/* End spacer */}
-          <div className="w-[10vw] flex-shrink-0" />
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const ProcessSection = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const stepsRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: stepsRef,
-    offset: ["start start", "end end"]
-  });
-
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      const step = Math.min(Math.floor(latest * PROCESS_STEPS.length), PROCESS_STEPS.length - 1);
-      setActiveStep(step);
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
-  return (
-    <section className="py-32 relative" id="process">
-      <div className="container max-w-[100rem] mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          {/* Sticky Left Side */}
-          <div className="lg:w-1/2 lg:h-[80vh] lg:sticky lg:top-24 flex flex-col justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 font-heading">
-                The <span className="text-soft-purple">Process</span>
-              </h2>
-              <p className="text-xl text-secondary-foreground mb-12 max-w-lg">
-                A systematic approach to building digital excellence. From chaos to clarity, I guide your project through five distinct phases.
-              </p>
-              
-              <div className="relative h-[400px] w-full hidden lg:block bg-foreground/5 rounded-2xl overflow-hidden border border-foreground/10">
-                {PROCESS_STEPS.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    className="absolute inset-0 flex items-center justify-center p-12"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ 
-                      opacity: activeStep === index ? 1 : 0,
-                      scale: activeStep === index ? 1 : 0.8,
-                    }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div className="text-center">
-                      <div className="w-20 h-20 mx-auto bg-gradient-to-br from-electric-blue to-soft-purple rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(138,43,226,0.3)]">
-                        <div className="text-foreground scale-150">{step.icon}</div>
-                      </div>
-                      <h3 className="text-3xl font-bold text-foreground mb-4">{step.title}</h3>
-                      <p className="text-secondary-foreground leading-relaxed">{step.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Scrollable Right Side */}
-          <div ref={stepsRef} className="lg:w-1/2 flex flex-col gap-32 pb-32">
-            {PROCESS_STEPS.map((step, index) => (
-              <motion.div 
-                key={index}
-                className={`flex gap-6 p-8 rounded-2xl border transition-all duration-500 ${
-                  activeStep === index 
-                    ? "bg-foreground/5 border-electric-blue/30 shadow-[0_0_30px_rgba(0,0,0,0.3)]" 
-                    : "bg-transparent border-transparent opacity-30"
-                }`}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: activeStep === index ? 1 : 0.3, x: 0 }}
-                viewport={{ margin: "-20% 0px -20% 0px" }}
-              >
-                <span className="text-6xl font-bold text-foreground/10 font-heading">{step.step}</span>
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-3 lg:hidden">{step.title}</h3>
-                  <p className="text-secondary-foreground leading-relaxed lg:hidden">{step.description}</p>
-                  <div className="hidden lg:block">
-                    <h3 className="text-2xl font-bold text-foreground mb-2">{step.title} Phase</h3>
-                    <p className="text-secondary-foreground/70">Scroll to activate details...</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const WhyWorkSection = () => {
   return (
     <section className="py-32 bg-[#05050A] relative overflow-hidden">
@@ -599,7 +399,6 @@ const WhyWorkSection = () => {
           </div>
 
           <div className="relative h-[600px] w-full rounded-3xl overflow-hidden border border-foreground/10 bg-foreground/5">
-             {/* ... keep existing code (Abstract Code/Visual Representation) ... */}
              <div className="absolute inset-0 p-8 font-mono text-sm text-electric-blue/40 overflow-hidden opacity-50">
                 {Array.from({ length: 20 }).map((_, i) => (
                   <div key={i} className="whitespace-nowrap mb-2">
@@ -621,49 +420,6 @@ const WhyWorkSection = () => {
                 </div>
              </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const TestimonialsSection = () => {
-  return (
-    <section className="py-32 border-t border-white/5">
-      <div className="container max-w-[100rem] mx-auto px-4 md:px-6 mb-16 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-white font-heading mb-4">Trusted by <span className="text-electric-blue">Founders</span></h2>
-      </div>
-
-      <div className="relative w-full overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-        
-        <div className="flex gap-8 animate-scroll hover:pause w-max px-8">
-          {[...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA].map((testimonial, index) => (
-            <Card key={index} className="w-[400px] md:w-[500px] bg-[#0F0F22] border-white/10 shrink-0">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full overflow-hidden border border-white/20">
-                    <Image 
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      width={100} 
-                      height={100} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold">{testimonial.name}</h4>
-                    <p className="text-electric-blue text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className="text-gray-300 text-lg italic leading-relaxed">"{testimonial.text}"</p>
-                <div className="flex gap-1 mt-6 text-yellow-500">
-                  {[1,2,3,4,5].map(star => <StarIcon key={star} filled />)}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </div>
     </section>
