@@ -25,18 +25,18 @@ export default {
             colors: {
                 destructive: '#FF0000',
                 'destructive-foreground': '#FFFFFF',
-                'electric-blue': '#3B82F6',
+                'electric-blue': '#96C93D',
                 'soft-purple': '#8B5CF6',
                 'shopify-green': '#96C93D',
-                'glowing-gradient-base1': '#3B82F6',
+                'glowing-gradient-base1': '#96C93D',
                 'glowing-gradient-base2': '#96C93D',
-                'glowing-gradient-base3': '#3B82F6',
+                'glowing-gradient-base3': '#96C93D',
                 background: '#0B0F19',
                 secondary: '#96C93D',
                 foreground: '#FFFFFF',
                 'secondary-foreground': '#A0AEC0',
                 'primary-foreground': '#0B0F19',
-                primary: '#3B82F6'
+                primary: '#96C93D'
             },
         },
     },
