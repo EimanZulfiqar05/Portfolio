@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Linkedin, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:hello@example.com', label: 'Email' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/-eiman-zulfiqar-019b73233/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:iemanzulfiqar05@gmail.com', label: 'Email' },
+    { icon: Phone, href: 'tel:+923105390537', label: 'Phone' },
   ];
 
   const footerLinks = [
@@ -94,9 +93,14 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
-            <p className="font-paragraph text-sm text-foreground/70 mt-6">
-              hello@example.com
-            </p>
+            <div className="space-y-2 mt-6">
+              <p className="font-paragraph text-sm text-foreground/70">
+                iemanzulfiqar05@gmail.com
+              </p>
+              <p className="font-paragraph text-sm text-foreground/70">
+                +923105390537
+              </p>
+            </div>
           </div>
         </div>
 
