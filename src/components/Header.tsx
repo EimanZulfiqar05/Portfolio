@@ -52,13 +52,11 @@ export default function Header() {
             <motion.a
               href="#hero"
               onClick={(e) => scrollToSection(e, '#hero')}
-              className="font-heading text-2xl font-bold text-primary cursor-pointer"
+              className="font-heading text-xl font-bold text-primary cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-electric-blue">&lt;</span>
-              Dev
-              <span className="text-electric-blue">/&gt;</span>
+              eimanzulfiqar.com
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -88,8 +86,10 @@ export default function Header() {
             >
               <Button
                 onClick={() => {
-                  const element = document.querySelector('#cta');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  const phoneNumber = '923105390537';
+                  const message = 'Hello I need help to...';
+                  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, '_blank');
                 }}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 font-paragraph font-bold px-8 py-6 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(57,255,20,0.3)] hover:scale-105"
               >
@@ -147,8 +147,10 @@ export default function Header() {
           >
             <Button
               onClick={() => {
-                const element = document.querySelector('#cta');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
+                const phoneNumber = '923105390537';
+                const message = 'Hello I need help to...';
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
                 setIsMobileMenuOpen(false);
               }}
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-paragraph font-bold px-8 py-6 rounded-xl text-lg"

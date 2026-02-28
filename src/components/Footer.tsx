@@ -35,9 +35,7 @@ export default function Footer() {
               className="font-heading text-2xl font-bold text-primary"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-electric-blue">&lt;</span>
-              Dev
-              <span className="text-electric-blue">/&gt;</span>
+              eimanzulfiqar.com
             </motion.div>
             <p className="font-paragraph text-sm text-foreground/70 leading-relaxed">
               Building high-converting Shopify stores and smart digital systems. Strategic software engineering for modern ecommerce.
@@ -106,25 +104,9 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-foreground/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-paragraph text-sm text-foreground/50">
-              © {currentYear} All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <a
-                href="#privacy"
-                className="font-paragraph text-sm text-foreground/50 hover:text-electric-blue transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#terms"
-                className="font-paragraph text-sm text-foreground/50 hover:text-electric-blue transition-colors"
-              >
-                Terms of Service
-              </a>
-            </div>
-          </div>
+          <p className="font-paragraph text-sm text-foreground/50 text-center">
+            © {currentYear} All rights reserved.
+          </p>
         </div>
       </div>
 

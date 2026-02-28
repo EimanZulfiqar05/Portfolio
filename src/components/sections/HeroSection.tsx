@@ -56,7 +56,7 @@ export default function HeroSection() {
       </div>
 
       <motion.div
-        className="relative z-10 max-w-[120rem] mx-auto px-6 lg:px-12 text-center"
+        className="relative z-10 max-w-[120rem] mx-auto px-6 lg:px-12 text-center flex flex-col items-center justify-center"
         style={{ y, opacity }}
       >
         {/* Badge */}
@@ -129,8 +129,10 @@ export default function HeroSection() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               onClick={() => {
-                const element = document.querySelector('#cta');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
+                const phoneNumber = '923105390537';
+                const message = 'Hello I need help to...';
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
               }}
               variant="outline"
               className="bg-transparent text-electric-blue border-2 border-electric-blue hover:bg-electric-blue/10 font-paragraph font-bold px-8 py-6 rounded-xl text-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,255,0.3)]"
