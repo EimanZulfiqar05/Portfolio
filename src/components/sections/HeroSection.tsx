@@ -7,7 +7,7 @@ export default function HeroSection() {
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const words = "Building High-Converting Shopify Stores & Smart Digital Systems".split(' ');
+  const words = "10X Faster Development with Modern AI Strategies".split(' ');
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -103,7 +103,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.5 }}
           className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          Strategic software engineering for modern ecommerce. I build systems, not pages—combining technical excellence with conversion-first thinking.
+          While other developers take 10 days, I deliver in 3. Leveraging cutting-edge AI strategies and modern development practices to accelerate your project timeline without compromising quality.
         </motion.p>
 
         {/* CTA Buttons */}
