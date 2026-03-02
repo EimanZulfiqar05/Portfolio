@@ -22,40 +22,40 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="projects" className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-soft-purple/5 to-background" />
 
-      <div className="relative z-10 max-w-[120rem] mx-auto px-6 lg:px-12">
+      <div className="relative z-10 max-w-[120rem] mx-auto px-4 sm:px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block font-paragraph text-sm font-bold text-soft-purple uppercase tracking-wider mb-4"
+            className="inline-block font-paragraph text-xs sm:text-sm font-bold text-soft-purple uppercase tracking-wider mb-3 md:mb-4"
           >
             Portfolio
           </motion.span>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-4 md:mb-6">
             Featured{' '}
             <span className="bg-gradient-to-r from-soft-purple to-primary bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
-          <p className="font-paragraph text-lg text-foreground/60 max-w-3xl mx-auto">
+          <p className="font-paragraph text-base sm:text-lg text-foreground/60 max-w-3xl mx-auto">
             Real results from real projects. Strategic development that drives measurable growth.
           </p>
         </motion.div>
 
-        <div className="min-h-[800px]">
+        <div>
           {isLoading ? null : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {projects.map((project, index) => (
                 <ProjectCard key={project._id} project={project} index={index} />
               ))}
@@ -91,7 +91,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       className="group relative bg-foreground/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-foreground/10 hover:border-soft-purple/30 transition-all duration-500"
     >
       {/* Image Container */}
-      <div className="relative h-64 md:h-80 overflow-hidden bg-foreground/5">
+      <div className="relative h-48 sm:h-56 md:h-64 lg:h-80 overflow-hidden bg-foreground/5">
         {project.projectImages && (
           <motion.div
             animate={{ scale: isHovered ? 1.1 : 1 }}
@@ -112,17 +112,17 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent flex items-end p-6"
+          className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent flex items-end p-4 sm:p-6"
         >
           {metrics.length > 0 && (
-            <div className="space-y-2">
+            <div className="space-y-1 sm:space-y-2">
               {metrics.slice(0, 2).map((metric, idx) => (
                 <motion.p
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
                   transition={{ duration: 0.3, delay: idx * 0.1 }}
-                  className="font-paragraph text-sm text-primary font-bold"
+                  className="font-paragraph text-xs sm:text-sm text-primary font-bold"
                 >
                   {metric}
                 </motion.p>
@@ -133,9 +133,9 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-8">
-        <div className="flex items-start justify-between mb-4">
-          <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground group-hover:text-soft-purple transition-colors duration-300">
+      <div className="p-4 sm:p-6 lg:p-8">
+        <div className="flex items-start justify-between mb-3 sm:mb-4 gap-2">
+          <h3 className="font-heading text-lg sm:text-2xl md:text-3xl font-bold text-foreground group-hover:text-soft-purple transition-colors duration-300 line-clamp-2">
             {project.projectTitle}
           </h3>
           {project.projectUrl && (
@@ -145,34 +145,34 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="w-10 h-10 rounded-lg bg-soft-purple/10 border border-soft-purple/20 hover:bg-soft-purple/20 hover:border-soft-purple/40 flex items-center justify-center text-soft-purple transition-all duration-300"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-soft-purple/10 border border-soft-purple/20 hover:bg-soft-purple/20 hover:border-soft-purple/40 flex items-center justify-center text-soft-purple transition-all duration-300 flex-shrink-0"
               aria-label="View project"
             >
-              <ExternalLink size={18} />
+              <ExternalLink size={16} />
             </motion.a>
           )}
         </div>
 
         {project.completionDate && (
-          <div className="flex items-center gap-2 text-foreground/50 mb-4">
-            <Calendar size={14} />
-            <span className="font-paragraph text-sm">
+          <div className="flex items-center gap-2 text-foreground/50 mb-3 sm:mb-4">
+            <Calendar size={12} />
+            <span className="font-paragraph text-xs sm:text-sm">
               {format(new Date(project.completionDate), 'MMMM yyyy')}
             </span>
           </div>
         )}
 
-        <p className="font-paragraph text-base text-foreground/70 mb-6 leading-relaxed line-clamp-3">
+        <p className="font-paragraph text-sm md:text-base text-foreground/70 mb-3 sm:mb-4 leading-relaxed line-clamp-2">
           {project.caseStudyDescription}
         </p>
 
         {/* Technologies */}
         {technologies.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {technologies.map((tech, idx) => (
+          <div className="flex flex-wrap gap-1 sm:gap-2">
+            {technologies.slice(0, 3).map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 rounded-full bg-soft-purple/10 border border-soft-purple/20 font-paragraph text-xs text-soft-purple font-medium"
+                className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-soft-purple/10 border border-soft-purple/20 font-paragraph text-xs text-soft-purple font-medium"
               >
                 {tech}
               </span>
