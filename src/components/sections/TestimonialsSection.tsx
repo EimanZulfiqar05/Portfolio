@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { ClientTestimonials } from '@/entities';
-import { Image } from '@/components/ui/image';
 
 export default function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState<ClientTestimonials[]>([]);
@@ -181,40 +180,10 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
           "{testimonial.testimonialText}"
         </blockquote>
 
-        {/* Client info */}
-        <div className="flex items-center gap-4">
-          {testimonial.clientPhoto && (
-            <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-electric-blue/30">
-              <Image
-                src={testimonial.clientPhoto}
-                alt={testimonial.clientName || 'Client'}
-                width={64}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
-          
-          <div>
-            <p className="font-heading text-lg font-bold text-foreground">
-              {testimonial.clientName}
-            </p>
-            {testimonial.clientRoleCompany && (
-              <p className="font-paragraph text-sm text-foreground/60">
-                {testimonial.clientRoleCompany}
-              </p>
-            )}
-            {testimonial.clientWebsiteUrl && (
-              <a
-                href={testimonial.clientWebsiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-paragraph text-sm text-electric-blue hover:underline"
-              >
-                Visit Website
-              </a>
-            )}
-          </div>
-        </div>
+        {/* Client name only */}
+        <p className="font-heading text-lg font-bold text-foreground">
+          {testimonial.clientName}
+        </p>
       </div>
 
       {/* Decorative gradient */}
