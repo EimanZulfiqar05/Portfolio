@@ -1,30 +1,25 @@
 // HPI 1.7-G
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue, useMotionTemplate } from 'framer-motion';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import ProcessSection from '@/components/sections/ProcessSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import ServicesSection from '@/components/sections/ServicesSection';
+import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import { motion, useInView, useMotionTemplate, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion';
 import {
   ArrowRight,
-  Code,
   BarChart,
-  Cpu,
-  Palette,
-  Layers,
-  Zap,
-  Globe,
-  Smartphone,
   CheckCircle2,
-  TrendingUp,
+  Code,
+  Cpu,
+  Globe,
+  Layers,
+  Palette,
   Shield,
-  MousePointer2
+  TrendingUp,
+  Zap
 } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Image } from '@/components/ui/image';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import ServicesSection from '@/components/sections/ServicesSection';
-import ProjectsSection from '@/components/sections/ProjectsSection';
-import ProcessSection from '@/components/sections/ProcessSection';
-import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import React, { useEffect, useRef, useState } from 'react';
 
 // --- CANONICAL DATA SOURCES ---
 // Sourced from User Request & Entities Definitions
