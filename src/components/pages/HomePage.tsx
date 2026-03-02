@@ -1,18 +1,18 @@
 // HPI 1.7-G
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Code, 
-  BarChart, 
-  Cpu, 
-  Palette, 
-  Layers, 
-  Zap, 
-  Globe, 
-  Smartphone, 
-  CheckCircle2, 
-  TrendingUp, 
+import {
+  ArrowRight,
+  Code,
+  BarChart,
+  Cpu,
+  Palette,
+  Layers,
+  Zap,
+  Globe,
+  Smartphone,
+  CheckCircle2,
+  TrendingUp,
   Shield,
   MousePointer2
 } from 'lucide-react';
@@ -37,7 +37,7 @@ const HERO_DATA = {
 };
 
 const TRUST_STATS = [
-  { label: "Shopify Stores 50+ revenue generated", value: "20M+", prefix: "$" },
+  { label: "Shopify Stores", value: "50+", prefix: "" },
   { label: "Conversion Uplift", value: "45%", prefix: "Avg " },
   { label: "Client Retention", value: "98%", prefix: "" },
 ];
@@ -183,7 +183,7 @@ const AnimatedCounter = ({ value, prefix = "" }: { value: string, prefix?: strin
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const numericValue = parseInt(value.replace(/[^0-9]/g, '')) || 0;
   const suffix = value.replace(/[0-9]/g, '');
-  
+
   const count = useSpring(0, { duration: 2000, bounce: 0 });
   const [displayValue, setDisplayValue] = useState(0);
 
@@ -233,14 +233,14 @@ const MagneticButton = ({ children, className, variant = "primary" }: { children
       style={{ x, y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={`relative overflow-hidden group rounded-full px-8 py-4 font-medium text-lg transition-all duration-300 ${
-        variant === "primary" 
-          ? "bg-electric-blue text-primary-foreground hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]" 
+        variant === "primary"
+          ? "bg-electric-blue text-primary-foreground hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
           : "bg-transparent border border-foreground/20 text-foreground hover:bg-foreground/5 hover:border-electric-blue/50"
       } ${className}`}
     >
       <span className="relative z-10 flex items-center gap-2">{children}</span>
       {variant === "primary" && (
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-white/20 z-0"
           initial={{ scale: 0, opacity: 0 }}
           whileHover={{ scale: 1.5, opacity: 1 }}
@@ -262,11 +262,11 @@ const HeroSection = () => {
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 bg-background">
       {/* Subtle Background Accents */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
+        <motion.div
           style={{ y: y1, x: -100 }}
           className="absolute top-[-30%] left-[-15%] w-[600px] h-[600px] bg-shopify-green/8 rounded-full blur-[150px]"
         />
-        <motion.div 
+        <motion.div
           style={{ y: y2, x: 100 }}
           className="absolute bottom-[-30%] right-[-15%] w-[500px] h-[500px] bg-electric-blue/8 rounded-full blur-[150px]"
         />
@@ -287,7 +287,7 @@ const HeroSection = () => {
             Available for new projects
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground mb-8 leading-[1.1]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -296,7 +296,7 @@ const HeroSection = () => {
             Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">High-Converting</span> Shopify Stores & Smart Systems
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             className="font-paragraph text-lg md:text-xl text-secondary-foreground max-w-2xl mb-12 leading-relaxed font-light"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -305,7 +305,7 @@ const HeroSection = () => {
             {HERO_DATA.subtext}
           </motion.p>
 
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -320,9 +320,9 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-secondary-foreground flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -342,7 +342,7 @@ const TrustSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
           {TRUST_STATS.map((stat, index) => (
             <div key={index} className="flex flex-col items-center justify-center text-center">
-              <motion.div 
+              <motion.div
                 className="text-4xl md:text-5xl font-bold text-foreground mb-2 font-heading"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -375,7 +375,7 @@ const StrategicPartnerSection = () => {
             Not just a developer. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">A Strategic Partner.</span>
           </h2>
-          
+
           <div className="space-y-6 text-lg md:text-xl text-secondary-foreground font-light">
             <p>I build systems, not just pages.</p>
             <p>Conversion-first thinking embedded in code.</p>
@@ -392,11 +392,11 @@ const WhyWorkSection = () => {
   return (
     <section className="py-32 bg-[#05050A] relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-soft-purple/10 via-transparent to-transparent opacity-50" />
-      
+
       <div className="container max-w-[100rem] mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground font-heading leading-tight mb-12"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -405,10 +405,10 @@ const WhyWorkSection = () => {
               Not just a developer. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">A Strategic Partner.</span>
             </motion.h2>
-            
+
             <div className="space-y-8">
               {WHY_WORK_POINTS.map((point, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="flex items-center gap-4"
                   initial={{ opacity: 0, x: -20 }}
@@ -434,7 +434,7 @@ const WhyWorkSection = () => {
                 ))}
              </div>
              <div className="absolute inset-0 bg-gradient-to-t from-[#05050A] via-transparent to-transparent" />
-             
+
              <div className="absolute bottom-0 left-0 right-0 p-12">
                 <div className="bg-black/50 backdrop-blur-xl border border-foreground/10 p-8 rounded-2xl">
                   <div className="flex items-center gap-4 mb-4">
@@ -454,14 +454,14 @@ const WhyWorkSection = () => {
 };
 
 const StarIcon = ({ filled }: { filled?: boolean }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    fill={filled ? "currentColor" : "none"} 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill={filled ? "currentColor" : "none"}
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className="w-4 h-4"
   >
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -492,7 +492,7 @@ const CTASection = () => {
           `,
         }}
       />
-      
+
       <div className="container max-w-5xl mx-auto px-4 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -502,14 +502,14 @@ const CTASection = () => {
         >
           {/* Glow Effect */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-electric-blue/20 blur-[100px] rounded-full pointer-events-none" />
-          
+
           <h2 className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground font-heading mb-8 relative z-10">
             Ready to <span className="text-electric-blue">Scale</span> Your Store?
           </h2>
           <p className="text-xl text-secondary-foreground mb-10 max-w-2xl mx-auto relative z-10">
             Let's build a system that works as hard as you do. Book a discovery call and let's discuss your growth strategy.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
             <MagneticButton className="w-full sm:w-auto">
               Work With Me <ArrowRight className="w-4 h-4" />
@@ -538,9 +538,9 @@ export default function HomePage() {
           animation-play-state: paused;
         }
       `}</style>
-      
+
       <Header />
-      
+
       <main className="relative">
         <HeroSection />
         <TrustSection />
