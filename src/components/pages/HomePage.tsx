@@ -37,8 +37,7 @@ const HERO_DATA = {
 };
 
 const TRUST_STATS = [
-  { label: "Revenue Generated", value: "50M+", prefix: "$" },
-  { label: "Stores Optimized", value: "120+", prefix: "" },
+  { label: "Shopify Stores 50+ revenue generated", value: "20M+", prefix: "$" },
   { label: "Conversion Uplift", value: "45%", prefix: "Avg " },
   { label: "Client Retention", value: "98%", prefix: "" },
 ];
@@ -340,7 +339,7 @@ const TrustSection = () => {
   return (
     <section className="py-20 border-y border-foreground/10 bg-black/20 backdrop-blur-sm relative z-20">
       <div className="container max-w-[100rem] mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
           {TRUST_STATS.map((stat, index) => (
             <div key={index} className="flex flex-col items-center justify-center text-center">
               <motion.div 
@@ -356,6 +355,34 @@ const TrustSection = () => {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
+
+const StrategicPartnerSection = () => {
+  return (
+    <section className="py-24 bg-background relative overflow-hidden">
+      <div className="container max-w-[100rem] mx-auto px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground font-heading leading-tight mb-8">
+            Not just a developer. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-shopify-green">A Strategic Partner.</span>
+          </h2>
+          
+          <div className="space-y-6 text-lg md:text-xl text-secondary-foreground font-light">
+            <p>I build systems, not just pages.</p>
+            <p>Conversion-first thinking embedded in code.</p>
+            <p>Technical mastery meets strategic vision.</p>
+            <p>Direct partnership, no middle-management bloat.</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -485,11 +512,8 @@ const CTASection = () => {
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
             <MagneticButton className="w-full sm:w-auto">
-              Start Your Project <ArrowRight className="w-4 h-4" />
+              Work With Me <ArrowRight className="w-4 h-4" />
             </MagneticButton>
-            <Button variant="outline" className="h-auto py-4 px-8 rounded-full text-lg border-foreground/20 text-foreground hover:bg-foreground hover:text-primary-foreground transition-colors">
-              View Pricing
-            </Button>
           </div>
         </motion.div>
       </div>
@@ -520,6 +544,7 @@ export default function HomePage() {
       <main className="relative">
         <HeroSection />
         <TrustSection />
+        <StrategicPartnerSection />
         <ServicesSection />
         <ProjectsSection />
         <ProcessSection />
