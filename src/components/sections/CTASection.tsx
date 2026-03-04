@@ -83,7 +83,13 @@ export default function CTASection() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
-                  onClick={() => window.location.href = 'mailto:hello@example.com'}
+                  type="button"
+                  onClick={() => {
+                    const phoneNumber = '923105390537';
+                    const message = 'Hello I need help to...';
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                  }}
                   className="bg-primary text-primary-foreground hover:bg-primary/90 font-paragraph font-bold px-10 py-7 rounded-xl text-lg transition-all duration-300 hover:shadow-[0_0_50px_rgba(57,255,20,0.5)] group relative overflow-hidden"
                 >
                   {/* Animated glow effect */}
@@ -100,7 +106,7 @@ export default function CTASection() {
                   />
                   <span className="relative flex items-center gap-2">
                     <Mail size={20} />
-                    Start a Project
+                    Work With Me
                     <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
                   </span>
                 </Button>

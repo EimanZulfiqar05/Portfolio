@@ -128,6 +128,7 @@ export default function HeroSection() {
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
+              type="button"
               onClick={() => {
                 const phoneNumber = '923105390537';
                 const message = 'Hello I need help to...';
