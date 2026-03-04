@@ -201,7 +201,7 @@ const AnimatedCounter = ({ value, prefix = "" }: { value: string, prefix?: strin
   );
 };
 
-const MagneticButton = ({ children, className, variant = "primary" }: { children: React.ReactNode, className?: string, variant?: "primary" | "secondary" }) => {
+const MagneticButton = ({ children, className, variant = "primary", onClick }: { children: React.ReactNode, className?: string, variant?: "primary" | "secondary", onClick?: () => void }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -223,6 +223,7 @@ const MagneticButton = ({ children, className, variant = "primary" }: { children
   return (
     <motion.button
       ref={ref}
+      onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ x, y }}
@@ -309,7 +310,15 @@ const HeroSection = () => {
             <MagneticButton variant="primary">
               {HERO_DATA.ctaPrimary} <ArrowRight className="w-4 h-4" />
             </MagneticButton>
-            <MagneticButton variant="secondary">
+            <MagneticButton 
+              variant="secondary"
+              onClick={() => {
+                const phoneNumber = '923105390537';
+                const message = 'Hello I need help to...';
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+              }}
+            >
               {HERO_DATA.ctaSecondary}
             </MagneticButton>
           </motion.div>
@@ -506,7 +515,15 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-            <MagneticButton className="w-full sm:w-auto">
+            <MagneticButton 
+              className="w-full sm:w-auto"
+              onClick={() => {
+                const phoneNumber = '923105390537';
+                const message = 'Hello I need help to...';
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+              }}
+            >
               Work With Me <ArrowRight className="w-4 h-4" />
             </MagneticButton>
           </div>
