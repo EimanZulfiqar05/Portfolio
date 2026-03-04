@@ -18,7 +18,7 @@ export const Head = () => {
       <link rel="canonical" href="https://buildwitheiman.com/" />
 
       {/* Open Graph (Facebook, LinkedIn) */}
-      <meta property="og:title" content="Eiman Zulfiqar | Full Stack Developer" />
+      <meta property="og:title" content="Eiman Zulfiqar | Shopify Developer, Ecommerce Expert" />
       <meta
         property="og:description"
         content="Shopify & WordPress Expert building modern AI-powered websites and ecommerce systems."
