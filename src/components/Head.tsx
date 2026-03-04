@@ -11,7 +11,7 @@ export const Head = () => {
       {/* SEO Description */}
       <meta
         name="description"
-        content="Full Stack Developer specializing in Shopify, WordPress, and AI-powered web solutions. I build high-converting, modern, and scalable digital experiences."
+        content="Full Stack Developer specializing in Ecommerce, Shopify, WordPress/WooCommerce, and AI-powered web solutions. I build high-converting, modern, and scalable digital experiences."
       />
 
       {/* Canonical URL */}
