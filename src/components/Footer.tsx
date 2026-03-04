@@ -35,7 +35,7 @@ export default function Footer() {
               className="font-heading text-2xl font-bold text-primary"
               whileHover={{ scale: 1.05 }}
             >
-              EmanZ
+              BuildWithEman
             </motion.div>
             <p className="font-paragraph text-sm text-foreground/70 leading-relaxed">
               Building high-converting Shopify stores and smart digital systems. Strategic software engineering for modern ecommerce.
