@@ -133,7 +133,7 @@ function ProcessStep({ step, index, isEven }: ProcessStepProps) {
               <div className="aspect-[4/3] relative">
                 <Image
                   src={step.visualRepresentation}
-                  alt={step.stepName || 'Process step'}
+                  alt="all"
                   width={600}
                   className="w-full h-full object-cover"
                 />

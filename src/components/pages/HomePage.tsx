@@ -25,8 +25,8 @@ import React, { useEffect, useRef, useState } from 'react';
 // Sourced from User Request & Entities Definitions
 
 const HERO_DATA = {
-  headline: "Building High-Converting Shopify Stores & Smart Digital Systems",
-  subtext: "I engineer scalable e-commerce solutions and AI-driven automations that transform businesses. Strategic. Powerful. Elite.",
+  headline: "Not Your Ordinary Web Developer",
+  subtext: "I do AI Augmented Development while maintaining system architecture and design. I build systems 10x faster. Don't believe? Try for once. Pay only if you like.",
   ctaPrimary: "View Work",
   ctaSecondary: "Work With Me"
 };

@@ -7,8 +7,6 @@ export default function HeroSection() {
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const words = "10X Faster Development with Modern AI Strategies".split(' ');
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated mesh background */}
@@ -74,26 +72,7 @@ export default function HeroSection() {
 
         {/* Animated Heading */}
         <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-black text-foreground mb-6 leading-tight">
-          {words.map((word, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="inline-block mr-3 md:mr-4"
-              style={{
-                background: index % 3 === 0 ? 'linear-gradient(135deg, #00FFFF 0%, #8A2BE2 100%)' : 'none',
-                WebkitBackgroundClip: index % 3 === 0 ? 'text' : 'none',
-                WebkitTextFillColor: index % 3 === 0 ? 'transparent' : 'inherit',
-              }}
-            >
-              {word}
-            </motion.span>
-          ))}
+          Not Your <span className="bg-gradient-to-r from-electric-blue to-soft-purple bg-clip-text text-transparent">Ordinary</span> Web Developer
         </h1>
 
         {/* Subtext */}
@@ -103,7 +82,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.5 }}
           className="font-paragraph text-lg md:text-xl text-foreground/70 max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          While other developers take 10 days, I deliver in 3. Leveraging cutting-edge AI strategies and modern development practices to accelerate your project timeline without compromising quality.
+          I do AI Augmented Development while maintaining system architecture and design. I build systems 10x faster. Don't believe? Try for once. Pay only if you like.
         </motion.p>
 
         {/* CTA Buttons */}

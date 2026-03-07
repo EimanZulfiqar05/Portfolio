@@ -100,7 +100,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           >
             <Image
               src={project.projectImages}
-              alt={project.projectTitle || 'Project'}
+              alt="all"
               width={800}
               className="w-full h-full object-cover"
             />
